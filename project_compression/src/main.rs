@@ -6,7 +6,6 @@ use std::env::args;
 use std::fs::File;
 use std::io::copy;
 use std::io::BufReader;
-use std::io::Write;
 use std::time::Instant;
 
 fn main(){
