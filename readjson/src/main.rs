@@ -1,3 +1,5 @@
+use std::fs;
+
 use serde::{Deserialize, Serialize};
 
 
@@ -23,23 +25,10 @@ fn read_json_type(json: &str) -> Option<Article>{
 }
 
 fn realmain()->i32{
-    let json = r#"{
-        "article":"how to work with rust",
-        "author":"param",
-        "paragraph":[
-            {
-                "data":"starting sentence"
-            },
-            {
-                "data":"starting sentence"
-            },
-            {
-                "data":"starting sentence"
-            }
-        ]
-    }"#;
+    let json = fs::read_to_string("main.json").unwrap();
+    let new = json.as_str();
 
-    let parsed_article: Article = read_json_type(json).unwrap();
+    let parsed_article: Article = read_json_type(new).unwrap();
 
     println!("The name of the first paragraph is: {}", parsed_article.paragraph[0].data);
     0
