@@ -36,7 +36,7 @@ fn realmain() -> i32{
             }
         }
 
-        if ((*file.name()).ends_with('/')) {
+        if (*file.name()).ends_with('/') {
             println!("File {} extracted to: \"{}\"", i, output.display());
             fs::create_dir_all(&output).unwrap();
         }
